@@ -1,27 +1,27 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "ESSL",
-	"patterns": [
-		{
-			"include": "#comments"
-		},
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		},
-		{
-			"include": "#numeric-literal"
-		},
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "ESSL",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#numeric-literal"
+    },
     {
       "include": "#definitions"
     },
     {
       "include": "#identifier"
     }
-	],
-	"repository": {
+  ],
+  "repository": {
     "comments": {
       "patterns": [
         {
@@ -60,12 +60,12 @@
         }
       ]
     },
-		"keywords": {
-			"patterns": [
+    "keywords": {
+      "patterns": [
         {
-				  "name": "keyword.control.essl",
-				  "match": "\\b(if|while|for|return)\\b"
-			  },
+          "name": "keyword.control.essl",
+          "match": "\\b(if|while|for|return)\\b"
+        },
         {
           "name": "keyword.entity.essl",
           "match": "\\b(entity)\\b"
@@ -83,34 +83,34 @@
           "match": "\\b(enum)\\b"
         }
       ]
-		},
-		"strings": {
-			"name": "string.quoted.double.essl",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.essl",
-					"match": "\\\\."
-				}
-			]
-		},
-		"numeric-literal": {
-			"patterns": [
-				{
+    },
+    "strings": {
+      "name": "string.quoted.double.essl",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.essl",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "numeric-literal": {
+      "patterns": [
+        {
           "name": "meta.object.member.essl",
-					"match": "(?![_$[:alpha:]])([[:digit:]]+)",
+          "match": "(?![_$[:alpha:]])([[:digit:]]+)",
           "captures": {
             "0": {
-							"name": "meta.object-literal.key.essl"
-						},
-			      "1": {
+              "name": "meta.object-literal.key.essl"
+            },
+            "1": {
               "name": "constant.numeric.decimal.essl"
             }
           }
-				}
-			]
-		},
+        }
+      ]
+    },
     "definitions": {
       "patterns": [
         {
@@ -131,6 +131,6 @@
       "name": "entity.name.tag.essl",
       "match": "\\b[A-Z][0-9A-Za-z_]*\\b\\??"
     }
-	},
-	"scopeName": "source.essl"
+  },
+  "scopeName": "source.essl"
 }
