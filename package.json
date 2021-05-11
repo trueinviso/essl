@@ -1,0 +1,25 @@
+{
+    "name": "essl",
+    "displayName": "ESSL",
+    "description": "Syntax highlighting for essl lang",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.56.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "essl",
+            "aliases": ["ESSL", "essl"],
+            "extensions": [".essl"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "essl",
+            "scopeName": "source.essl",
+            "path": "./syntaxes/essl.tmLanguage.json"
+        }]
+    }
+}

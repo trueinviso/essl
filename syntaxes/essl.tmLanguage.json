@@ -1,0 +1,136 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "ESSL",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#numeric-literal"
+		},
+    {
+      "include": "#definitions"
+    },
+    {
+      "include": "#identifier"
+    }
+	],
+	"repository": {
+    "comments": {
+      "patterns": [
+        {
+          "include": "#comments-inline"
+        },
+        {
+          "include": "#comments-block"
+        }
+      ]
+    },
+    "comments-inline": {
+      "patterns": [
+        {
+          "name": "comment.line.triple-slash.essl",
+          "match": "\/\/\/.*"
+        },
+        {
+          "name": "comment.line.double-slash.essl",
+          "match": "\/\/.*"
+        },
+        {
+          "name": "comment.line.double-pound.essl",
+          "match": "##.*"
+        }
+      ]
+    },
+    "comments-block": {
+      "patterns": [
+        {
+          "name": "comment.block.asterisk.essl",
+          "match": "\/\\*.*|.*\\*\/"
+        },
+        {
+          "name": "comment.block.pound.essl",
+          "match": "\/#.*|.*#\/"
+        }
+      ]
+    },
+		"keywords": {
+			"patterns": [
+        {
+				  "name": "keyword.control.essl",
+				  "match": "\\b(if|while|for|return)\\b"
+			  },
+        {
+          "name": "keyword.entity.essl",
+          "match": "\\b(entity)\\b"
+        },
+        {
+          "name": "keyword.includes.essl",
+          "match": "\\b(namespace|dependsOn)\\b"
+        },
+        {
+          "name": "keyword.type.essl",
+          "match": "\\b(type)\\b"
+        },
+        {
+          "name": "keyword.enum.essl",
+          "match": "\\b(enum)\\b"
+        }
+      ]
+		},
+		"strings": {
+			"name": "string.quoted.double.essl",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.essl",
+					"match": "\\\\."
+				}
+			]
+		},
+		"numeric-literal": {
+			"patterns": [
+				{
+          "name": "meta.object.member.essl",
+					"match": "(?![_$[:alpha:]])([[:digit:]]+)",
+          "captures": {
+            "0": {
+							"name": "meta.object-literal.key.essl"
+						},
+			      "1": {
+              "name": "constant.numeric.decimal.essl"
+            }
+          }
+				}
+			]
+		},
+    "definitions": {
+      "patterns": [
+        {
+          "name": "entity.type.includes.essl",
+          "match": "(@[a-z][:alpha:]*\\(?)(.*?)(\\))",
+          "captures": {
+            "0": {
+              "name": "storage.type.essl"
+            },
+            "2": {
+              "name": "storage.type.essl"
+            }
+          }
+        }
+      ]
+    },
+    "identifier": {
+      "name": "entity.name.tag.essl",
+      "match": "\\b[A-Z][0-9A-Za-z_]*\\b\\??"
+    }
+	},
+	"scopeName": "source.essl"
+}
